@@ -15,9 +15,10 @@ console.log(person1.__proto__);
 person1.multiplyFavoriteNumber(5);
 //Create your own custom prototype methods for Array and String objects.
 console.log(String.prototype);
-String.prototype.vowelCount = function (word) {
+String.prototype.vowelCount = function () {
   let vowels = ["a","e","i","o","u"];
-  let input = word.toLowerCase();
+  let word = this;
+  let input = this.toLowerCase();
   let wordArray = input.split(" ");
   let count = 0;
    for(let i = 0;i<wordArray.length;i++)
@@ -33,7 +34,8 @@ String.prototype.vowelCount = function (word) {
   
 }
 const stringObject1 = new String();
-console.log(stringObject1.vowelCount("Frontend development is a part of development"));
+stringObject1 = "Frontend development is a part of development";
+console.log(stringObject1.vowelCount());
 console.log(Array.prototype);
 String.prototype.reverse = function (word) {
   let answer ="";

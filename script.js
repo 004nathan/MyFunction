@@ -15,10 +15,10 @@ console.log(person1.__proto__);
 person1.multiplyFavoriteNumber(5);
 //Create your own custom prototype methods for Array and String objects.
 console.log(String.prototype);
-String.prototype.vowelCount = function () {
+String.prototype.vowelCount = function (){
   let vowels = ["a","e","i","o","u"];
   let word = this;
-  let input = this.toLowerCase();
+  let input = word.toLowerCase();
   let wordArray = input.split(" ");
   let count = 0;
    for(let i = 0;i<wordArray.length;i++)
@@ -33,28 +33,27 @@ String.prototype.vowelCount = function () {
   return count;
   
 }
-const stringObject1 = new String();
-stringObject1 = "Frontend development is a part of development";
-console.log(stringObject1.vowelCount());
-console.log(Array.prototype);
-String.prototype.reverse = function (word) {
+console.log("frontEnd".vowelCount())
+String.prototype.reverse = function () {
+  let st = this ;
   let answer ="";
-  for(let i = word.length-1;i>=0;i--)
+  for(let i = st.length-1;i>=0;i--)
     {
-       answer += word[i];
+       answer += st[i];
     }
   return answer;
 }
-console.log(stringObject1.reverse("hesitate"));
-Array.prototype.power = function (inputArray){
+console.log("hesitate".reverse());
+Array.prototype.power = function (){
   let answer =[];
+  let inputArray = this;
   for (let x of inputArray) {
     answer.push(x*x);
   }
   return answer;
 }
-const arrayObject = new Array();
-console.log(arrayObject.power([1,2,3,4,5,6,7,8,9,10,11,12,14,15]));
+
+console.log([1,2,3,4,5,6,7,8,9,10,11,12,14,15].power());
 // constructor function and the new operator
 const zohoSchools = function(name,age,development,empId,batchYear)
 {

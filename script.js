@@ -377,3 +377,61 @@ const getCountryDetail = function(country){
   })
 }
 getCountryDetail("australia");
+// find a geocoding from Api call
+const getGeoCodingApi = function(){
+  fetch(`https://geocode.xyz/51.50354,-0.12768?`).then(function (response){
+    console.log(response);
+    return response.json();
+  }).then(function (data){
+   let borders = data[0].borders;
+   console.log(borders)
+   if(!borders)throw new Error(`No neighbour found!${data[0].status}`);
+    console.log(data);
+    console.log(data[0])
+   })
+   .catch(err =>{
+      console.log(`Country not found ${err}`)
+    })
+  .finally(()=>{
+    console.log("Api calling finished")
+  })
+}
+getGeoCodingApi();
+// We create a promise method for our function
+// async and await method
+// get our html files render the web page like iframe
+
+let html = document.getElementById("demo");
+async function renderWebPage(){
+  // bulit a promise
+  // Promise give two type of response (1. resolved response 2.rejected response)
+  let myPromise = new Promise(function (resolve){
+    let request = new XMLHttpRequest();
+    request.open('GET',"/Quote Generator/index.html");
+    request.onload = function(){
+      if(request.status = 200){
+        resolve(request.response);
+      }
+      else{
+        resolve("file not found")
+      }
+    }
+    request.send();
+  })
+  html.innerHTML = await myPromise;
+}
+renderWebPage();
+
+//covered topics 
+// 1. Advance JS methods
+// 2. OOPs.js
+// 3. Fetch // HttpRequest(Api)
+// 4. Async / await
+// 5. promise
+// 6. Node.js
+// 7. React/ember/lyte/angular
+// 8.Jquery
+// mvc => model,view,controller
+// Aptitude questions
+//public, view, server.js
+
